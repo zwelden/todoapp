@@ -1,0 +1,23 @@
+.c-new-todo-form {
+    //background: $gray-ultra-light;
+
+    .c-new-todo-form__title,
+    .c-new-todo-form__desc {
+      display: flex;
+      margin-bottom: 2em;
+    }
+
+    label {
+      border-bottom: 2px solid $theme-color;
+      padding: 5px 10px 3px 0;
+      font-size: 1em;
+      line-height: 2;
+    }
+
+    input[type=text] {
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      flex-grow: 1;
+    }
+}

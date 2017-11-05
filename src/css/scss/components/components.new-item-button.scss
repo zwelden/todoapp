@@ -1,0 +1,105 @@
+.c-add-new-item-button--wrapper {
+    position: fixed;
+    bottom: 10%;
+    width: 100%;
+    margin: auto;
+    z-index: 100;
+}
+.c-add-new-item-button--wrapper-inner {
+    position: relative;
+    width: $content-width;
+    max-width: 85%;
+    margin: auto;
+}
+
+.c-add-new-item-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 70px;
+    height: 70px;
+    background: $theme-color;
+    border-radius: 100%;
+    z-index: 100;
+    transform: translateX(50%) translateY(50%);
+    box-shadow: 0 2px 5px $gray-dark;
+    transition: width .2s, height .2s;
+    cursor: pointer;
+
+    &:hover {
+      width: 80px;
+      height: 80px;
+      box-shadow: 0 2px 10px $gray-dark;
+
+      .c-add-new-item-button--info-text {
+        visibility: visible;
+      }
+    }
+
+    .c-add-new-item-button--plus {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        &:before {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 6px;
+          height: 60%;
+          transform: translateX(-50%) translateY(-50%);
+          content: "";
+          background: $white;
+        }
+
+        &:after {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 60%;
+          height: 6px;
+          transform: translateX(-50%) translateY(-50%);
+          content: "";
+          background: $white;
+        }
+    }
+
+    .c-add-new-item-button--info-text {
+        position: absolute;
+        bottom: 50%;
+        right: 130px;
+        width: 200px;
+        height: 70px;
+        background: $theme-color;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-radius: 5px;
+        transform: translateY(50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        color: $white;
+        visibility: hidden;
+        transition: visibility .2s;
+        z-index: 110;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: -23px;
+          height: 50px;
+          width: 50px;
+          transform: translateY(-50%) rotate(45deg);
+          background: $theme-color;
+          z-index: 100;
+          border-radius: 5px;
+        }
+
+        p {
+          margin: 0;
+          font-size: 1.1em;
+        }
+    }
+}
