@@ -6,7 +6,7 @@ var deporder = require('gulp-deporder');
 var stripdebug = require('gulp-strip-debug');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
-var postcss = require('post-css-assets');
+var postcss = require('postcss-assets');
 var assets = require('postcss-assets');
 var autoprefixer = require('autoprefixer');
 var mqpacker = require('css-mqpacker');
@@ -15,8 +15,8 @@ var cssnano = require('cssnano');
 var devBuild = (process.env.NODE_ENV !== 'production');
 
 var folder = {
-  src: 'src/',
-  build: 'build/'
+  src: '../',
+  build: '../../build/'
 };
 
 // html files
@@ -58,21 +58,21 @@ gulp.task('css', function () {
     postCssOpts.push(cssnano);
   }
 
-  return gulp.src(folder.src + 'scss/main.scss')
+  return gulp.src(folder.src + 'css/scss/main.scss')
     .pipe(sass({
       outputStyle: 'nested',
       imagePath: 'img/',
       precision: 3,
       errLogToConsole: true
     }))
-    .pipe(postcss(postCssOpts))
+    //.pipe(postcss(postCssOpts))
     .pipe(gulp.dest(folder.build + 'css/'));
 });
 
 gulp.task('run', ['html', 'css', 'js']);
 
-gulp.task('watch', function () {
+gulp.task('watch', ['run'], function () {
   gulp.watch(folder.src + 'html/**/*', ['html']);
   gulp.watch(folder.src + 'js/**/*', ['js']);
-  gulp.watch(folder.src + 'scss/**/*', ['css']);
+  gulp.watch(folder.src + 'css/scss/**/*', ['css']);
 });
