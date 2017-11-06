@@ -75,7 +75,8 @@ button, .button {
   font-size: 1.1em;
   letter-spacing: 1px;
   font-weight: bold;
-  color: #5a5; }
+  color: #5a5;
+  cursor: pointer; }
   button:hover, .button:hover {
     background: #5a5;
     color: #fff; }
@@ -107,22 +108,20 @@ input[type=text] {
   padding: 10px;
   background: #5a5; }
 
+.c-todo-list__entry {
+  width: 100%; }
+
 .c-new-todo-form .c-new-todo-form__title,
 .c-new-todo-form .c-new-todo-form__desc {
-  display: flex;
   margin-bottom: 2em; }
 
 .c-new-todo-form label {
-  border-bottom: 2px solid #5a5;
-  padding: 5px 10px 3px 0;
   font-size: 1em;
-  line-height: 2; }
+  color: #555;
+  margin-bottom: 5px; }
 
 .c-new-todo-form input[type=text] {
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  flex-grow: 1; }
+  width: 100%; }
 
 .c-todo-list__list {
   position: relative;
@@ -243,3 +242,87 @@ input[type=text] {
     .c-add-new-item-button .c-add-new-item-button--info-text p {
       margin: 0;
       font-size: 1.1em; }
+
+.c-add-item-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: auto;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  display: none;
+  z-index: 300; }
+  .c-add-item-modal:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #555;
+    opacity: .7; }
+  .c-add-item-modal.active {
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%; }
+
+.c-add-item-modal__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 40%;
+  min-width: 300px;
+  height: 60%;
+  background: #fcfcfc;
+  border-radius: 10px; }
+
+.c-add-item-modal__content--inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px; }
+
+.c-add-item-modal__close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 50px;
+  width: 50px;
+  background: #5a5;
+  border-radius: 100%;
+  transform: translateX(40%) translateY(-40%) rotate(45deg);
+  box-shadow: 0 0 3px #999;
+  cursor: pointer; }
+  .c-add-item-modal__close-btn:hover {
+    background: #a55; }
+  .c-add-item-modal__close-btn .c-add-item-modal__close-btn__X {
+    position: relative;
+    height: 100%;
+    width: 100%; }
+    .c-add-item-modal__close-btn .c-add-item-modal__close-btn__X:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 60%;
+      width: 4px;
+      transform: translateX(-50%) translateY(-50%);
+      background: #fff; }
+    .c-add-item-modal__close-btn .c-add-item-modal__close-btn__X:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 4px;
+      width: 60%;
+      transform: translateX(-50%) translateY(-50%);
+      background: #fff; }

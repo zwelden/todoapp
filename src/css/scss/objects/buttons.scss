@@ -7,6 +7,7 @@ button, .button {
     letter-spacing: 1px;
     font-weight: bold;
     color: $theme-color;
+    cursor: pointer;
 
     &:hover {
         background: $theme-color;

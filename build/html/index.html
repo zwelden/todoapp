@@ -24,26 +24,6 @@
       <div class="o-page--wrapper">
           <!-- todo area-->
           <div class="c-todo-list--wrapper">
-            <!-- todo entry -->
-            <div class="c-todo-list__entry">
-              <div class="c-todo-list__entry--header u-align-center">
-                <h2>Enter A New Todo</h2>
-              </div>
-              <form class="c-new-todo-form o-card" action="" method="">
-                  <div class="c-new-todo-form__title">
-                    <!-- <label for="new-todo-item" class="u-block">Todo Title:</label> -->
-                    <input type="text" name="new-todo-title" value="" class="u-block" placeholder="Todo Title:">
-                  </div>
-                  <div class="c-new-todo-form__desc">
-                    <!-- <label for="new-todo-desc" class="u-block">Todo Description:</label> -->
-                    <input type="text" name="new-todo-desc" value="" class="u-block" placeholder="Todo Description:">
-                  </div>
-                  <div class="c-new-todo-form__submit u-align-center">
-                    <input type="submit" class="button c-todo-list__entry--button" value="Create New Todo">
-                  </div>
-              </form>
-            </div>
-
             <!-- todo list -->
             <div class="c-todo-list__list--wrapper">
               <h2 class="u-align-center">Todo Items</h2>
@@ -131,5 +111,35 @@
           </div>
       </div>
 
+      <div class="c-add-item-modal">
+          <div class="c-add-item-modal__content">
+            <div class="c-add-item-modal__content--inner">
+              <div class="c-add-item-modal__close-btn">
+                <div class="c-add-item-modal__close-btn__X"></div>
+              </div>
+              <!-- todo entry -->
+              <div class="c-todo-list__entry">
+                <div class="c-todo-list__entry--header u-align-center">
+                  <h2>Enter A New Todo</h2>
+                </div>
+                <form class="c-new-todo-form" action="" method="">
+                    <div class="c-new-todo-form__title">
+                      <label for="new-todo-item" class="u-block">Todo Title:</label>
+                      <input type="text" name="new-todo-title" value="" class="u-block">
+                    </div>
+                    <div class="c-new-todo-form__desc">
+                      <label for="new-todo-desc" class="u-block">Todo Description:</label>
+                      <input type="text" name="new-todo-desc" value="" class="u-block">
+                    </div>
+                    <div class="c-new-todo-form__submit u-align-center">
+                      <input type="submit" class="button c-todo-list__entry--button" value="Create New Todo">
+                    </div>
+                </form>
+              </div>
+
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript" src="../js/main.js"></script>
   </body>
 </html>

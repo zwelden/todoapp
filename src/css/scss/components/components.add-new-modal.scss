@@ -1,0 +1,98 @@
+.c-add-item-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: auto;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  display: none;
+  z-index: 300;
+
+  &:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $black-lighter;
+    opacity: .7;
+  }
+
+  &.active {
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.c-add-item-modal__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 40%;
+  min-width: 300px;
+  height: 60%;
+  background: $gray-ultra-light;
+  border-radius: 10px;
+}
+
+.c-add-item-modal__content--inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.c-add-item-modal__close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50px;
+    width: 50px;
+    background: $theme-color;
+    border-radius: 100%;
+    transform: translateX(40%) translateY(-40%) rotate(45deg);
+    box-shadow: 0 0 3px $gray-dark;
+    cursor: pointer;
+
+    &:hover {
+      background: $theme-color-alt;
+    }
+
+    .c-add-item-modal__close-btn__X {
+        position: relative;
+        height: 100%;
+        width: 100%;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 60%;
+            width: 4px;
+            transform: translateX(-50%) translateY(-50%);
+            background: $white;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 4px;
+            width: 60%;
+            transform: translateX(-50%) translateY(-50%);
+            background: $white;
+        }
+    }
+}
