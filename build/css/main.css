@@ -81,6 +81,12 @@ button, .button {
     background: #5a5;
     color: #fff; }
 
+.btn-warning {
+  color: #a55;
+  border-color: #a55; }
+  .btn-warning:hover {
+    background: #a55; }
+
 input[type=text] {
   box-sizing: inherit;
   border: 2px solid #5a5;
@@ -100,7 +106,8 @@ input[type=text] {
   padding: 1rem 2rem;
   border-radius: 5px;
   margin-bottom: 2em;
-  background: #eeefee; }
+  background: #f5f5f5;
+  border: 1px solid #5a5; }
   .o-card:hover {
     box-shadow: 0 2px 5px #bbb; }
 
@@ -125,7 +132,7 @@ input[type=text] {
 
 .c-todo-list__list {
   position: relative;
-  width: calc(100% + 10px);
+  width: calc(100% + 20px);
   display: flex;
   flex-wrap: wrap;
   margin: 0 -5px; }
@@ -134,7 +141,7 @@ input[type=text] {
   box-sizing: border-box;
   flex: 0 0 25%;
   flex-basis: 25%;
-  padding: 0 5px; }
+  padding: 0 10px; }
   @media only screen and (max-width: 1200px) {
     .c-todo-list__item-wrapper {
       flex: 0 0 33.33%;
@@ -154,6 +161,8 @@ input[type=text] {
     text-align: center;
     padding-bottom: 5px;
     border-bottom: 1px solid #5a5; }
+  .c-todo-list__item button:nth-of-type(n + 2) {
+    margin-left: 10px; }
 
 .c-add-new-item-button--wrapper {
   position: fixed;

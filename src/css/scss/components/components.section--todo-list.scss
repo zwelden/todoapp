@@ -1,6 +1,6 @@
 .c-todo-list__list {
     position: relative;
-    width: calc(100% + 10px);
+    width: calc(100% + 20px);
     display: flex;
     flex-wrap: wrap;
     margin: 0 -5px;
@@ -10,7 +10,7 @@
     box-sizing: border-box;
     flex: 0 0 25%;
     flex-basis: 25%;
-    padding: 0 5px;
+    padding: 0 10px;
 
     @media only screen and (max-width: 1200px) {
       flex: 0 0 33.33%;
@@ -35,5 +35,11 @@
       text-align: center;
       padding-bottom: 5px;
       border-bottom: 1px solid $theme-color;
+    }
+
+    button {
+      &:nth-of-type(n + 2) {
+        margin-left: 10px;
+      }
     }
 }

@@ -14,3 +14,12 @@ button, .button {
         color: $white;
     }
 }
+
+.btn-warning {
+  color: $theme-color-alt;
+  border-color: $theme-color-alt;
+
+  &:hover {
+    background: $theme-color-alt;
+  }
+}
