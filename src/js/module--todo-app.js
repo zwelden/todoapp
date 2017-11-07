@@ -38,6 +38,20 @@
     // do stuff
   }
 
+  function viewTodo (index) {
+    var todo = todoList[index];
+    var todoTitle = todo.title;
+    var todoDesc = todo.desc;
+
+    var viewTodoModal = document.querySelector('.c-view-todo-modal');
+    var viewTodoModalTitle = viewTodoModal.querySelector('.c-view-todo-modal__todo-title h2');
+    var viewTodoModalDesc = viewTodoModal.querySelector('.c-view-todo-modal__todo-desc p');
+
+    viewTodoModalTitle.innerHTML = todoTitle;
+    viewTodoModalDesc.innerHTML = todoDesc;
+    viewTodoModal.classList.add('active');
+  }
+
   function makeCard (title, desc, index) {
     var card = '<li class="c-todo-list__item-wrapper">' +
                   '<div class="c-todo-list__item o-card">' +
@@ -45,8 +59,8 @@
                     '<p><strong>Description: </strong>' +
                     desc + '</p>' +
                     '<div class="c-todo-list__item__button u-align-center">' +
-                      '<button type="button" name="view-todo" data-index="' + index + '">View</button>' +
-                      '<button type="button" name="delete-todo" class="btn-warning" data-index="' + index + '">Delete</button>' +
+                      '<button class="btn-small" type="button" name="view-todo" data-index="' + index + '">View</button>' +
+                      '<button class="btn-small btn-warning" type="button" name="delete-todo" data-index="' + index + '">Delete</button>' +
                     '</div>' +
                   '</div>' +
                 '</li>';
@@ -66,36 +80,30 @@
     } else {
       todoListHolder.innerHTML = '<li><h3>No Todo List Items</h3></li>';
     }
-
-    // TODO figure out how to decouple this from showTodos
-    setTimeout(function () {
-      refreshBtnEvents();
-    }, 0);
   }
 
   // get todolist (if it exists) and show list on page load
   todoList = getTodoList();
   showTodos();
 
-  // move below to individul modules
+  // ****
+  // TODO move below to individul modules
+  // ****
+
   var addTodoBtn = document.querySelector('.c-todo-list__entry--button');
+  var viewTodoModal = document.querySelector('.c-view-todo-modal');
+  var closeModalBtn = document.querySelector('.c-view-todo-modal__close-btn__X');
 
-  function refreshBtnEvents () {
-    // **
-    // TODO add view todo events
-    // **
-    var deleteBtns = document.querySelectorAll('button[name=delete-todo]');
-
-    // add event listeners
-    for (var j = 0; j < deleteBtns.length; j++) {
-      (function (index) {
-        deleteBtns[index].addEventListener('click', function () {
-          var index = this.dataset.index;
-          removeTodo(index);
-        });
-      })(j);
+  document.querySelector('.c-todo-list__list').addEventListener('click', function (e) {
+    var index;
+    if (e.target && e.target.name === 'delete-todo') {
+      index = e.target.dataset.index;
+      removeTodo(index);
+    } else if (e.target && e.target.name === 'view-todo') {
+      index = e.target.dataset.index;
+      viewTodo(index);
     }
-  }
+  });
 
   addTodoBtn.addEventListener('click', function () {
     var todoTitle = document.querySelector('input[name=new-todo-title]');
@@ -106,4 +114,18 @@
     todoTitle.value = '';
     todoDesc.value = '';
   });
+
+  // close if close btn is pressed
+  closeModalBtn.addEventListener('click', function () {
+    viewTodoModal.classList.remove('active');
+  });
+
+  // close modal on esc keypress
+  window.onkeydown = function (e) {
+    if (e.keyCode === 27) {
+      if (viewTodoModal.classList.contains('active')) {
+        viewTodoModal.classList.remove('active');
+      }
+    }
+  };
 })();

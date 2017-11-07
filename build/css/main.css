@@ -87,6 +87,10 @@ button, .button {
   .btn-warning:hover {
     background: #a55; }
 
+.btn-small {
+  font-size: .85em;
+  padding: 5px 10px; }
+
 input[type=text] {
   box-sizing: inherit;
   border: 2px solid #5a5;
@@ -335,3 +339,97 @@ input[type=text] {
       width: 60%;
       transform: translateX(-50%) translateY(-50%);
       background: #fff; }
+
+.c-view-todo-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: auto;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  display: none;
+  z-index: 300; }
+  .c-view-todo-modal:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #555;
+    opacity: .7; }
+  .c-view-todo-modal.active {
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%; }
+
+.c-view-todo-modal__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 40%;
+  min-width: 300px;
+  height: 60%;
+  background: #fcfcfc;
+  border-radius: 10px; }
+
+.c-view-todo-modal__content--inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px; }
+
+.c-view-todo-modal__close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 50px;
+  width: 50px;
+  background: #5a5;
+  border-radius: 100%;
+  transform: translateX(40%) translateY(-40%) rotate(45deg);
+  box-shadow: 0 0 3px #999;
+  cursor: pointer; }
+  .c-view-todo-modal__close-btn:hover {
+    background: #a55; }
+  .c-view-todo-modal__close-btn .c-view-todo-modal__close-btn__X {
+    position: relative;
+    height: 100%;
+    width: 100%; }
+    .c-view-todo-modal__close-btn .c-view-todo-modal__close-btn__X:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 60%;
+      width: 4px;
+      transform: translateX(-50%) translateY(-50%);
+      background: #fff; }
+    .c-view-todo-modal__close-btn .c-view-todo-modal__close-btn__X:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 4px;
+      width: 60%;
+      transform: translateX(-50%) translateY(-50%);
+      background: #fff; }
+
+.c-view-todo-modal__info {
+  width: 100%; }
+
+.c-view-todo-modal__todo-title {
+  text-align: center;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #5a5; }
+  .c-view-todo-modal__todo-title h2 {
+    margin: 0; }
